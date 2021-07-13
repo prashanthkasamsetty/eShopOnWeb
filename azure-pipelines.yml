@@ -38,6 +38,12 @@ variables:
   value: 'eShopOnWeb1'
 - name: SonarExclusions
   value: '**/test/**'
+- name: WebsiteName
+  value: 'CICDPipeLineWeb'
+- name: WebPath
+#value: '%SystemDrive%\eShopOnWebweb\_PublishedWebsites\eShopOnWebWeb'
+  value: '%SystemDrive%\eShopWeb'
+- group: 'IIS_Secret'# variable group
 
 stages:
   - stage: Build
