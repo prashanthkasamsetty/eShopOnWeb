@@ -1,7 +1,13 @@
 name: '$(Date:yyyyMMdd).$(Rev:r)'
 
-trigger:
-- main
+resources:
+  pipelines:
+  - pipeline: eShopOnWeb
+    source: eShopOnWeb
+    trigger:
+      branches:
+        include:
+        - main
 pool:
   name: 'Self Agent'
 
