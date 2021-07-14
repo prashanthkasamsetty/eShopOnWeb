@@ -1,16 +1,13 @@
 name: '$(Date:yyyyMMdd).$(Rev:r)'
-
+trigger: none
 resources:
   pipelines:
-  - pipeline: eShopOnWeb
-    source: eShopOnWeb
+  - pipeline: eShopOnWeb_Release
+    source: eShopOnWeb_Build
     trigger:
       branches:
         include:
         - main
-pool:
-  name: 'Self Agent'
-
 parameters:
 - name: Analyse_Packages
   displayName: Analyse Packages
@@ -54,7 +51,6 @@ variables:
 stages:
   - stage: Deploy
     displayName: Deploy to IIS
-    dependsOn: Build
     jobs:      
       - deployment: VMDeploy
         displayName: eShopOnWeb
